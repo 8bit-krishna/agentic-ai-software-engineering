@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agentic-ai-software-engineering"
+version = "0.1.0"
+description = "A transparent LangGraph foundation for software-delivery planning"
+readme = "README.md"
+requires-python = ">=3.11,<3.15"
+dependencies = ["langgraph>=0.2,<1.0"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+agentic-sdlc = "agentic_sdlc.runner:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
