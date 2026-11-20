@@ -5,12 +5,11 @@ can replace these functions while retaining the validated state contract.
 """
 
 from .state import DeliveryState
+from .validation import validate_task
 
 
 def planner(state: DeliveryState) -> DeliveryState:
-    task = state["task"].strip()
-    if not task:
-        raise ValueError("A non-empty task is required.")
+    task = validate_task(state.get("task"))
     return {"plan": [
         f"Clarify acceptance criteria for: {task}",
         "Identify affected components and data contracts.",
@@ -31,4 +30,8 @@ def coder(state: DeliveryState) -> DeliveryState:
         "Implement the smallest change that satisfies the agreed acceptance criteria.",
         "Validate normal, invalid, and boundary inputs with automated tests.",
         f"Review the {len(state['architecture'])} architecture constraints before handoff.",
+    ], "files": [], "test_plan": [
+        "Check normal, invalid, and boundary inputs against the acceptance criteria.",
+        "Review authentication, secrets handling, and failure behaviour before deployment.",
     ]}
+

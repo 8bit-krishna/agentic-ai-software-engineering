@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101519">
+  <title>Agentic Workbench — Krishna Kumar S</title>
+  <link rel="stylesheet" href="/assets/styles.css">
+  <script src="/assets/app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#task">Skip to task</a>
+  <header><a class="brand" href="/" aria-label="Agentic Workbench home"><span class="brand-symbol">a.</span><span>Agentic <b>Workbench</b></span></a><span class="local-label">LOCAL WORKSPACE</span></header>
+  <main>
+    <section class="intro"><span class="eyebrow">FROM IDEA TO IMPLEMENTATION</span><h1>Give your next idea<br>a clear <em>starting point.</em></h1><p>Describe what you want to build. Explore a plan, an architecture and a code scaffold — one focused workflow.</p></section>
+    <div class="workspace">
+      <section class="composer" aria-labelledby="composer-title">
+        <div class="panel-title"><h2 id="composer-title">What are we building?</h2><span>YOUR BRIEF</span></div>
+        <form id="task-form">
+          <label for="task">Describe your software task</label>
+          <textarea id="task" name="task" maxlength="4000" rows="8" required placeholder="Build a small customer enquiry API with validation, a database and clear setup instructions…" aria-describedby="task-hint character-count"></textarea>
+          <div class="field-meta"><span id="task-hint">Include your goal, users and preferred tools.</span><span id="character-count">0 / 4,000</span></div>
+          <div class="examples"><span>TRY A BRIEF</span><button type="button" data-example="Build a Python command-line expense tracker with CSV storage and tests.">Expense tracker</button><button type="button" data-example="Build a small Node.js customer enquiry API with input validation and setup instructions.">Enquiry API</button></div>
+          <fieldset><legend>Choose how to run</legend><label class="mode-card"><input type="radio" name="mode" value="demo" checked><span><b>Demo mode</b><small>Explore the workflow. Predefined notes, no API key.</small></span><span class="mode-badge">FREE</span></label><label class="mode-card"><input id="ai-mode" type="radio" name="mode" value="openai" disabled><span><b>AI mode</b><small>Task-specific results using your OpenAI API account.</small></span><span class="mode-badge">API</span></label></fieldset>
+          <p id="mode-note" class="mode-note">Demo mode does not generate code or contact an AI service.</p>
+          <div id="ai-consent" hidden><label class="consent"><input type="checkbox" id="consent"><span>I understand this sends my task to OpenAI and makes up to three billable API requests. I will not include credentials or private customer data.</span></label></div>
+          <button id="run" class="primary" type="submit">Run workflow <span aria-hidden="true">＋</span></button>
+          <p id="error" role="alert" hidden></p>
+        </form>
+      </section>
+      <aside class="workflow-panel"><span class="eyebrow">THE PROCESS</span><h2>Three perspectives.<br>One useful direction.</h2><ol class="stages"><li><span class="stage-symbol">P</span><div><h3>Planner</h3><p>Requirements and the next steps.</p></div><span class="stage-state">Ready</span></li><li><span class="stage-symbol">A</span><div><h3>Architect</h3><p>Structure, data and boundaries.</p></div><span class="stage-state">Ready</span></li><li><span class="stage-symbol">C</span><div><h3>Coder</h3><p>Implementation and a test plan.</p></div><span class="stage-state">Ready</span></li></ol><div class="setup-note"><h3>Start without a key.</h3><p id="setup-note">Demo mode is ready. To enable AI, install the AI extra and set your key in the server’s local .env file, then restart.</p></div><p class="review-note">Generated code is a starting point. Review it and run its tests before use. Nothing is executed automatically.</p></aside>
+    </div>
+    <section id="results" hidden aria-labelledby="results-title"><div class="results-head"><div><span class="eyebrow" id="result-mode">WORKFLOW RESULT</span><h2 id="results-title">Your starting point.</h2></div><div class="export-actions"><button id="download-json" type="button">Download JSON</button><button id="download-md" type="button">Download Markdown</button></div></div><p id="result-task"></p><p id="result-disclaimer" class="mode-note"></p><div id="result-body"></div></section>
+    <p id="status" role="status" aria-live="polite"></p>
+  </main>
+  <footer><span>Built by Krishna Kumar S</span><a href="https://github.com/8bit-krishna/agentic-ai-software-engineering" target="_blank" rel="noopener noreferrer">Source on GitHub</a><span>Results stay in this tab until you export them.</span></footer>
+</body>
+</html>
