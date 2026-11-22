@@ -11,10 +11,12 @@ A local workbench that turns a software brief into a plan, an architecture, impl
 
 Install Python 3.11–3.14 and Git. Python 3.13 is a good Windows starting point.
 
+The browser workbench and AI features are on the `feat/local-agentic-workbench` branch. The clone commands below select that branch.
+
 Open PowerShell in the folder where you keep projects:
 
 ~~~powershell
-git clone https://github.com/8bit-krishna/agentic-ai-software-engineering.git
+git clone --branch feat/local-agentic-workbench https://github.com/8bit-krishna/agentic-ai-software-engineering.git
 cd agentic-ai-software-engineering
 py -3.13 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -e ".[web,ai]"
@@ -23,12 +25,12 @@ py -3.13 -m venv .venv
 
 Open **http://127.0.0.1:8000**, enter a brief and choose **Demo mode**. No key is needed for the demo.
 
-The explicit interpreter paths work even when PowerShell blocks virtual-environment activation. If you downloaded a ZIP, extract it and open the folder containing pyproject.toml before running the venv and install commands.
+The explicit interpreter paths work even when PowerShell blocks virtual-environment activation. If you download a ZIP, select `feat/local-agentic-workbench` on GitHub before choosing **Code > Download ZIP**. Extract it and open the folder containing pyproject.toml before running the venv and install commands.
 
 ## Get started on macOS or Linux
 
 ~~~bash
-git clone https://github.com/8bit-krishna/agentic-ai-software-engineering.git
+git clone --branch feat/local-agentic-workbench https://github.com/8bit-krishna/agentic-ai-software-engineering.git
 cd agentic-ai-software-engineering
 python3 -m venv .venv
 .venv/bin/python -m pip install -e ".[web,ai]"
