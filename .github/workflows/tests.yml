@@ -32,3 +32,18 @@ jobs:
           node-version: '22'
       - run: node --test tests/frontend.test.cjs
       - run: python -m build --wheel
+      - name: Install browser check dependencies
+        if: matrix.os == 'ubuntu-latest' && matrix.python == '3.13'
+        run: |
+          python -m pip install playwright
+          python -m playwright install --with-deps chromium
+      - name: Check the demo in Chromium
+        if: matrix.os == 'ubuntu-latest' && matrix.python == '3.13'
+        run: python scripts/check_browser.py --output-dir "${{ runner.temp }}/agentic-browser-checks"
+      - name: Save browser screenshots and exports
+        if: always() && matrix.os == 'ubuntu-latest' && matrix.python == '3.13'
+        uses: actions/upload-artifact@v4
+        with:
+          name: browser-checks
+          path: ${{ runner.temp }}/agentic-browser-checks
+          retention-days: 7
