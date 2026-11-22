@@ -10,6 +10,10 @@ Given a task, the workflow produces a structured plan, architecture constraints,
 and implementation notes. It is intentionally deterministic and runs without
 API keys or network calls.
 
+The browser workbench and optional OpenAI integration are available on the
+`feat/local-agentic-workbench` branch. Follow its Windows, macOS or Linux
+installation steps in the [workbench setup guide](https://github.com/8bit-krishna/agentic-ai-software-engineering/blob/feat/local-agentic-workbench/README.md).
+
 ## What this project is—and is not
 
 This is a working workflow foundation, not a finished autonomous coding agent.
